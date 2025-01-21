@@ -3,5 +3,8 @@
         "noImplicitAny": false,
         "target": "ES5",
         "module": "ES2015"
-    }
+    },
+    "include": [
+        "./src/**/*" 
+    ]
 }

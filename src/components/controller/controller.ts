@@ -2,7 +2,7 @@ import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
     getSources(callback) {
-        super.getResp(
+        this.getResp(
             {
                 endpoint: 'sources',
             },

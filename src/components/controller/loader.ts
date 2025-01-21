@@ -1,10 +1,12 @@
 class Loader {
+    baseLink: any;
+    options: any;
     constructor(baseLink, options) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp(
+    protected getResp(
         { endpoint, options = {} },
         callback = () => {
             console.error('No callback for GET response');
