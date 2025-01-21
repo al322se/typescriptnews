@@ -1,7 +1,9 @@
+import { INewsResponse } from '../../interfaces/news';
+import { ISourceResponse } from '../../interfaces/source';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-    getSources(callback: (data:any)=>void) {
+    getSources(callback: (data:ISourceResponse)=>void) {
         this.getResp(
             {
                 endpoint: 'sources',
@@ -10,7 +12,7 @@ class AppController extends AppLoader {
         );
     }
 
-    getNews(e: Event, callback: (data:any)=>void): void {
+    getNews(e: Event, callback: (data:INewsResponse)=>void): void {
         const target = e.target as HTMLElement; 
         const newsContainer = e.currentTarget as HTMLElement; 
 
