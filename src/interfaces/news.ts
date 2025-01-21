@@ -1,6 +1,6 @@
-import { ISource } from "./source";
+import { IRespose, ISource } from "./source";
 
-export interface INewsResponse{
+export interface INewsResponse extends IRespose{
     articles:Article[]; 
 }
 export interface Article{

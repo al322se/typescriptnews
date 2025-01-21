@@ -1,3 +1,5 @@
+import { IRespose } from "../../interfaces/source";
+
 class Loader {
     baseLink: string;
     options: Record<string, string>;
@@ -9,7 +11,7 @@ class Loader {
 
     protected getResp(
         { endpoint, options = {} }: { endpoint: string; options?: Record<string, string> },
-        callback: (data: any) => void = () => {
+        callback: (data: IRespose) => void = () => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -27,7 +29,7 @@ class Loader {
         return res;
     }
 
-    private makeUrl(options: Record<string, any>, endpoint: string): string {
+    private makeUrl(options: Record<string, string>, endpoint: string): string {
         const urlOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -38,7 +40,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: 'GET' | 'POST', endpoint: string, callback: (data: any) => void, options: Record<string, any> = {}): void {
+    private load(method: 'GET' | 'POST', endpoint: string, callback: (data: IRespose) => void, options: Record<string, string> = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
